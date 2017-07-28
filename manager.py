@@ -78,6 +78,7 @@ app = Flask(__name__)
 @app.route('/api/checkFeedback', methods=['POST'])
 def cnn():
     data = request.get_data()
+    data.decode("utf-8")
     ls = json.loads(data)
     texts = [obj.get('text') for obj in ls]
     ids = [obj.get('id') for obj in ls]
